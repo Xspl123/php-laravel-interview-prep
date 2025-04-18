@@ -1,0 +1,304 @@
+1. PHP mein OOPs kya hai?
+   Answer: OOPs (Object-Oriented Programming) ek programming paradigm hai jo objects aur classes ka use karta hai.
+   Example:
+   
+   class Car {
+       public $color;
+       public function drive() {
+           echo "Car is driving";
+       }
+   }
+   $car = new Car();
+   $car->drive();
+   
+
+2. Class aur Object mein kya difference hai?
+   Answer: Class ek blueprint hai aur Object uska instance hai.
+   Example:
+   
+   class Animal {
+       public $name;
+   }
+   $dog = new Animal(); // Object
+   
+
+3. PHP mein Class kaise define karte hain?
+   Answer: `class` keyword ka use karke class define karte hain.
+   Example:
+   
+   class Car {
+       public $color;
+   }
+   
+
+4. Constructor kya hota hai?
+   Answer: Constructor ek special method hai jo object create hote hi automatically call hota hai.
+   Example:
+   
+   class Car {
+       public $color;
+       public function __construct($color) {
+           $this->color = $color;
+       }
+   }
+   $car = new Car("Red");
+   
+
+5. Destructor kya hota hai?
+   Answer: Destructor ek special method hai jo object destroy hone se pehle call hota hai.
+   Example:
+   
+   class Car {
+       public function __destruct() {
+           echo "Object destroyed";
+       }
+   }
+   $car = new Car();
+   
+
+6. Encapsulation kya hai?
+   Answer: Encapsulation ka matlab hai data aur methods ko ek saath bundle karna aur access control provide karna.
+   Example:
+   
+   class Car {
+       private $color;
+       public function setColor($color) {
+           $this->color = $color;
+       }
+       public function getColor() {
+           return $this->color;
+       }
+   }
+   $car = new Car();
+   $car->setColor("Blue");
+   echo $car->getColor();
+   
+
+7. Inheritance kya hai?
+   Answer: Inheritance ek mechanism hai jisme ek class doosri class ke properties aur methods inherit karti hai.
+   Example:
+   
+   class Vehicle {
+       public function drive() {
+           echo "Driving";
+       }
+   }
+   class Car extends Vehicle {
+   }
+   $car = new Car();
+   $car->drive();
+   
+
+8. Polymorphism kya hai?
+   Answer: Polymorphism ka matlab hai ek hi method ko alag-alag tarike se implement karna.
+   Example:
+   
+   class Shape {
+       public function draw() {
+           echo "Drawing Shape";
+       }
+   }
+   class Circle extends Shape {
+       public function draw() {
+           echo "Drawing Circle";
+       }
+   }
+   $shape = new Circle();
+   $shape->draw();
+   
+
+9. Abstraction kya hai?
+   Answer: Abstraction ka matlab hai unnecessary details ko hide karna aur sirf essential features ko show karna.
+   Example:
+   
+   abstract class Animal {
+       abstract public function sound();
+   }
+   class Dog extends Animal {
+       public function sound() {
+           echo "Bark";
+       }
+   }
+   $dog = new Dog();
+   $dog->sound();
+   
+
+10. Interface kya hota hai?
+    Answer: Interface ek blueprint hai jo sirf method signatures define karta hai, implementation nahi.
+    Example:
+    
+    interface Vehicle {
+        public function drive();
+    }
+    class Car implements Vehicle {
+        public function drive() {
+            echo "Car is driving";
+        }
+    }
+    $car = new Car();
+    $car->drive();
+    
+
+11. Abstract Class aur Interface mein kya difference hai?
+    Answer: Abstract class mein methods aur properties dono ho sakte hain, jabki Interface sirf methods define karta hai.
+
+12. Static keyword ka use kya hai?
+    Answer: Static keyword ka use karke hum class ke methods aur properties ko bina object banaye access kar sakte hain.
+
+13. Final keyword ka use kya hai?
+    Answer: Final keyword ka use karke hum kisi class ko inherit hone se ya method ko override hone se rok sakte hain.
+
+14. PHP mein Magic Methods kya hote hain?
+    Answer: Magic Methods special methods hote hain jo `__` se start hote hain, jaise `__construct`, `__destruct`, `__get`, `__set`.
+
+15. Overloading aur Overriding mein kya difference hai?
+    Answer: Overloading ka matlab hai ek hi naam ke methods ko alag-alag parameters ke saath define karna, aur Overriding ka matlab hai parent class ke method ko child class mein redefine karna.
+
+16. Traits kya hote hain?
+    Answer: Traits ek tarika hai jisme hum multiple inheritance ka simulation karte hain.
+
+17. Access Modifiers kya hote hain?
+    Answer: Access Modifiers define karte hain ki class ke members ka access level kya hoga - `public`, `protected`, `private`.
+
+18. `public`, `protected`, aur `private` mein kya difference hai?
+    Answer: `public` sabse accessible hai, `protected` sirf class aur subclasses ke liye hai, aur `private` sirf class ke andar accessible hai.
+
+19. PHP mein `this` keyword ka use kya hai?
+    Answer: `this` keyword ka use current object ko refer karne ke liye hota hai.
+
+20. PHP mein `self` keyword ka use kya hai?
+    Answer: `self` keyword ka use current class ke static members ko refer karne ke liye hota hai.
+
+21. PHP mein `parent` keyword ka use kya hai?
+    Answer: `parent` keyword ka use parent class ke methods aur properties ko access karne ke liye hota hai.
+
+22. Object Cloning kya hai?
+    Answer: Object Cloning ka matlab hai ek object ka duplicate create karna.
+
+23. `__clone()` method ka use kya hai?
+    Answer: `__clone()` method ka use cloning ke waqt custom logic define karne ke liye hota hai.
+
+24. Late Static Binding kya hai?
+    Answer: Late Static Binding ka matlab hai runtime par class ko resolve karna jisme method call kiya gaya hai.
+
+25. Dependency Injection kya hai?
+    Answer: Dependency Injection ek design pattern hai jisme dependencies ko class ke andar inject kiya jata hai.
+
+26. Singleton Pattern kya hai?
+    Answer: Singleton Pattern ek design pattern hai jisme ek class ka sirf ek hi instance create hota hai.
+
+27. Factory Pattern kya hai?
+    Answer: Factory Pattern ek design pattern hai jo object creation ko encapsulate karta hai.
+
+28. PHP mein Autoloading kya hai?
+    Answer: Autoloading ka matlab hai classes ko automatically load karna jab unka use hota hai.
+
+29. Namespace ka use kya hai?
+    Answer: Namespace ka use naming conflicts ko avoid karne ke liye hota hai.
+
+30. PHP mein `instanceof` operator ka use kya hai?
+    Answer: `instanceof` operator ka use check karne ke liye hota hai ki ek object kisi class ka instance hai ya nahi.
+
+31. PHP mein `__toString()` method ka use kya hai?
+    Answer: `__toString()` method ka use object ko string ke roop mein represent karne ke liye hota hai.
+
+32. PHP mein `__call()` method ka use kya hai?
+    Answer: `__call()` method ka use un methods ko handle karne ke liye hota hai jo exist nahi karte.
+
+33. PHP mein `__autoload()` function kya hai?
+    Answer: `__autoload()` ek deprecated function hai jo classes ko automatically load karta tha.
+
+34. PHP mein `spl_autoload_register()` function ka use kya hai?
+    Answer: `spl_autoload_register()` function ka use custom autoloading logic define karne ke liye hota hai.
+
+35. PHP mein Reflection API kya hai?
+    Answer: Reflection API ka use runtime par classes, methods, aur properties ke baare mein information retrieve karne ke liye hota hai.
+
+36. PHP mein `final` class kya hoti hai?
+    Answer: `final` class ek aisi class hai jo inherit nahi ki ja sakti.
+
+37. PHP mein `abstract` class kya hoti hai?
+    Answer: `abstract` class ek aisi class hai jo instantiate nahi ki ja sakti aur jisme abstract methods ho sakte hain.
+
+38. PHP mein `interface` ka use kya hai?
+    Answer: `interface` ka use multiple inheritance ko achieve karne ke liye hota hai.
+
+39. PHP mein `__get()` aur `__set()` methods ka use kya hai?
+    Answer: `__get()` aur `__set()` methods ka use inaccessible properties ko access aur set karne ke liye hota hai.
+
+40. PHP mein `__isset()` aur `__unset()` methods ka use kya hai?
+    Answer: `__isset()` aur `__unset()` methods ka use properties ke existence aur unsetting ko handle karne ke liye hota hai.
+
+41. PHP mein `__callStatic()` method ka use kya hai?
+    Answer: `__callStatic()` method ka use inaccessible static methods ko handle karne ke liye hota hai.
+
+42. PHP mein `__invoke()` method ka use kya hai?
+    Answer: `__invoke()` method ka use object ko function ki tarah call karne ke liye hota hai.
+
+43. PHP mein `__sleep()` aur `__wakeup()` methods ka use kya hai?
+    Answer: `__sleep()` serialization ke pehle call hota hai aur `__wakeup()` unserialization ke baad.
+
+44. PHP mein `__serialize()` aur `__unserialize()` methods ka use kya hai?
+    Answer: `__serialize()` aur `__unserialize()` methods ka use custom serialization logic define karne ke liye hota hai.
+
+45. PHP mein `__debugInfo()` method ka use kya hai?
+    Answer: `__debugInfo()` method ka use var_dump() ke output ko customize karne ke liye hota hai.
+
+46. PHP mein Overloading kaise implement karte hain?
+    Answer: PHP mein Overloading magic methods jaise `__get()`, `__set()`, `__call()` ka use karke implement hoti hai.
+
+47. PHP mein Aggregation aur Composition mein kya difference hai?
+    Answer: Aggregation mein objects loosely coupled hote hain, jabki Composition mein tightly coupled.
+
+48. PHP mein Object Iteration kaise hoti hai?
+    Answer: Object Iteration `Iterator` interface implement karke hoti hai.
+
+49. PHP mein `clone` keyword ka use kya hai?
+    Answer: `clone` keyword ka use ek object ka duplicate create karne ke liye hota hai.
+
+50. PHP mein `serialize()` aur `unserialize()` functions ka use kya hai?
+    Answer: `serialize()` object ko string mein convert karta hai aur `unserialize()` string ko object mein.
+
+51. Laravel mein Observer kya hai?
+    Answer: Observer ek design pattern hai jo model ke lifecycle events ko observe karne ke liye use hota hai. Laravel mein Observer ka use karte hue hum model ke events jaise `creating`, `updating`, `deleting` par custom logic likh sakte hain.
+    Example:
+
+    php artisan make:observer UserObserver --model=User
+
+    class UserObserver {
+        public function creating(User $user) {
+            $user->name = strtoupper($user->name);
+        }
+    }
+
+    // Observer ko register karne ke liye AppServiceProvider mein code likhein:
+    use App\Models\User;
+    use App\Observers\UserObserver;
+
+    public function boot() {
+        User::observe(UserObserver::class);
+    }
+
+52. Laravel mein API Resource kya hai aur iska use kya hai?
+    Answer: Laravel API Resource ek tarika hai jo data ko JSON format mein transform karne ke liye use hota hai. Ye API responses ko structure aur format karne mein madad karta hai.
+    Example:
+
+    php artisan make:resource UserResource
+
+    class UserResource extends JsonResource {
+        public function toArray($request) {
+            return [
+                'id' => $this->id,
+                'name' => $this->name,
+                'email' => $this->email,
+            ];
+        }
+    }
+
+    // Controller mein use karne ka tarika:
+    use App\Http\Resources\UserResource;
+
+    public function show($id) {
+        $user = User::find($id);
+        return new UserResource($user);
+    }

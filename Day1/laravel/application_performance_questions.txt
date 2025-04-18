@@ -1,0 +1,44 @@
+1. How do you enable caching in Laravel?
+   Answer: Use the `cache` facade or helper functions to store and retrieve cached data.
+
+2. How do you optimize database queries in Laravel?
+   Answer: Use eager loading with `with()` to reduce the number of queries.
+
+3. How do you use query caching in Laravel?
+   Answer: Use the `remember()` method to cache query results.
+
+4. How do you optimize route loading in Laravel?
+   Answer: Use the `php artisan route:cache` command to cache routes.
+
+5. How do you optimize configuration loading in Laravel?
+   Answer: Use the `php artisan config:cache` command to cache configuration files.
+
+6. How do you optimize view loading in Laravel?
+   Answer: Use the `php artisan view:cache` command to precompile Blade templates.
+
+7. How do you reduce memory usage in Laravel?
+   Answer: Use the `chunk()` method for processing large datasets.
+
+8. How do you use job queues to improve performance in Laravel?
+   Answer: Offload time-consuming tasks to queues using the `dispatch()` method.
+
+9. How do you enable OPcache in Laravel?
+   Answer: Configure OPcache in the PHP configuration file to cache compiled PHP scripts.
+
+10. How do you use Redis for caching in Laravel?
+    Answer: Configure Redis in `config/cache.php` and use it as the cache driver.
+
+11. How do you optimize asset loading in Laravel?
+    Answer: Use Laravel Mix to compile and minify CSS and JavaScript files.
+
+12. How do you monitor application performance in Laravel?
+    Answer: Use tools like Laravel Telescope or third-party services like New Relic.
+
+13. How do you reduce session storage overhead in Laravel?
+    Answer: Use lightweight session drivers like Redis or Memcached.
+
+14. How do you optimize middleware in Laravel?
+    Answer: Use middleware groups and avoid unnecessary middleware for specific routes.
+
+15. How do you handle database indexing in Laravel?
+    Answer: Add indexes to frequently queried columns using migrations.

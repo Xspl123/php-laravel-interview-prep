@@ -1,0 +1,149 @@
+1. What is MySQL?
+   Answer: MySQL is an open-source relational database management system (RDBMS) based on SQL (Structured Query Language).
+
+2. What are the different data types in MySQL?
+   Answer: MySQL supports data types such as INT, VARCHAR, TEXT, DATE, DATETIME, FLOAT, and ENUM.
+
+3. What is the difference between `CHAR` and `VARCHAR` in MySQL?
+   Answer: `CHAR` is a fixed-length string, while `VARCHAR` is a variable-length string.
+
+4. What is a primary key in MySQL?
+   Answer: A primary key is a unique identifier for a record in a table and cannot contain NULL values.
+
+5. What is a foreign key in MySQL?
+   Answer: A foreign key is a field in one table that refers to the primary key in another table to establish a relationship.
+
+6. What is the difference between `WHERE` and `HAVING` clauses?
+   Answer: `WHERE` filters rows before grouping, while `HAVING` filters groups after aggregation.
+
+7. What is the purpose of the `GROUP BY` clause?
+   Answer: The `GROUP BY` clause groups rows with the same values in specified columns for aggregation.
+
+8. What is the difference between `INNER JOIN` and `OUTER JOIN`?
+   Answer: `INNER JOIN` returns matching rows from both tables, while `OUTER JOIN` includes unmatched rows as well.
+
+9. What is the use of the `LIMIT` clause in MySQL?
+   Answer: The `LIMIT` clause restricts the number of rows returned by a query.
+
+10. What is the difference between `UNION` and `UNION ALL`?
+    Answer: `UNION` removes duplicate rows, while `UNION ALL` includes all rows, including duplicates.
+
+11. How do you create an index in MySQL?
+    Answer: Use the `CREATE INDEX` statement, e.g., `CREATE INDEX idx_name ON table_name(column_name)`.
+
+12. What is the purpose of indexing in MySQL?
+    Answer: Indexing improves query performance by allowing faster data retrieval.
+
+13. What is a composite key in MySQL?
+    Answer: A composite key is a primary key made up of two or more columns.
+
+14. What is the difference between `DELETE` and `TRUNCATE`?
+    Answer: `DELETE` removes specific rows and can be rolled back, while `TRUNCATE` removes all rows and cannot be rolled back.
+
+15. What is the difference between `DROP` and `TRUNCATE`?
+    Answer: `DROP` deletes the table structure and data, while `TRUNCATE` only deletes the data.
+
+16. What is a stored procedure in MySQL?
+    Answer: A stored procedure is a set of SQL statements stored in the database and executed as a single unit.
+
+17. What is a trigger in MySQL?
+    Answer: A trigger is a set of SQL statements that automatically execute in response to certain events on a table.
+
+18. What is a view in MySQL?
+    Answer: A view is a virtual table based on the result of a SELECT query.
+
+19. What is the difference between `NOW()` and `CURRENT_DATE()`?
+    Answer: `NOW()` returns the current date and time, while `CURRENT_DATE()` returns only the current date.
+
+20. How do you perform a backup in MySQL?
+    Answer: Use the `mysqldump` command, e.g., `mysqldump -u username -p database_name > backup.sql`.
+
+21. How do you restore a backup in MySQL?
+    Answer: Use the `mysql` command, e.g., `mysql -u username -p database_name < backup.sql`.
+
+22. What is the purpose of the `AUTO_INCREMENT` attribute?
+    Answer: The `AUTO_INCREMENT` attribute automatically generates a unique value for a column.
+
+23. What is the difference between `IS NULL` and `= NULL`?
+    Answer: `IS NULL` checks for NULL values, while `= NULL` is invalid.
+
+24. What is the purpose of the `DISTINCT` keyword?
+    Answer: The `DISTINCT` keyword removes duplicate rows from the result set.
+
+25. What is the difference between `IN` and `EXISTS`?
+    Answer: `IN` checks for values in a list, while `EXISTS` checks for the existence of rows in a subquery.
+
+26. What is the purpose of the `CASE` statement in MySQL?
+    Answer: The `CASE` statement allows conditional logic in SQL queries.
+
+27. What is the difference between `CHAR_LENGTH()` and `LENGTH()`?
+    Answer: `CHAR_LENGTH()` returns the number of characters, while `LENGTH()` returns the number of bytes.
+
+28. How do you rename a table in MySQL?
+    Answer: Use the `RENAME TABLE` statement, e.g., `RENAME TABLE old_name TO new_name`.
+
+29. How do you add a column to an existing table?
+    Answer: Use the `ALTER TABLE` statement, e.g., `ALTER TABLE table_name ADD column_name datatype`.
+
+30. How do you remove a column from a table?
+    Answer: Use the `ALTER TABLE` statement, e.g., `ALTER TABLE table_name DROP COLUMN column_name`.
+
+31. What is the difference between `MyISAM` and `InnoDB` storage engines?
+    Answer: `MyISAM` does not support transactions or foreign keys, while `InnoDB` supports both.
+
+32. How do you check the version of MySQL?
+    Answer: Use the `SELECT VERSION()` query or the `mysql --version` command.
+
+33. What is the purpose of the `EXPLAIN` statement?
+    Answer: The `EXPLAIN` statement provides information about how MySQL executes a query.
+
+34. How do you optimize a table in MySQL?
+    Answer: Use the `OPTIMIZE TABLE` statement, e.g., `OPTIMIZE TABLE table_name`.
+
+35. What is the purpose of the `FOREIGN_KEY_CHECKS` variable?
+    Answer: It enables or disables foreign key constraint checks.
+
+36. How do you find duplicate rows in a table?
+    Answer: Use the `GROUP BY` and `HAVING` clauses to identify duplicates.
+
+37. How do you update data in MySQL?
+    Answer: Use the `UPDATE` statement, e.g., `UPDATE table_name SET column_name = value WHERE condition`.
+
+38. How do you delete data in MySQL?
+    Answer: Use the `DELETE` statement, e.g., `DELETE FROM table_name WHERE condition`.
+
+39. What is the purpose of the `LOCK TABLES` statement?
+    Answer: The `LOCK TABLES` statement locks tables for read or write operations.
+
+40. How do you unlock tables in MySQL?
+    Answer: Use the `UNLOCK TABLES` statement.
+
+41. What is the difference between `BLOB` and `TEXT` data types?
+    Answer: `BLOB` is used for binary data, while `TEXT` is used for text data.
+
+42. How do you create a database in MySQL?
+    Answer: Use the `CREATE DATABASE` statement, e.g., `CREATE DATABASE database_name`.
+
+43. How do you drop a database in MySQL?
+    Answer: Use the `DROP DATABASE` statement, e.g., `DROP DATABASE database_name`.
+
+44. What is the purpose of the `SET` data type?
+    Answer: The `SET` data type allows storing multiple predefined values in a single column.
+
+45. How do you change the default storage engine in MySQL?
+    Answer: Use the `default-storage-engine` option in the MySQL configuration file.
+
+46. How do you enable slow query logging in MySQL?
+    Answer: Configure the `slow_query_log` variable in the MySQL configuration file.
+
+47. What is the purpose of the `SHOW` statement in MySQL?
+    Answer: The `SHOW` statement displays database, table, or server information.
+
+48. How do you create a user in MySQL?
+    Answer: Use the `CREATE USER` statement, e.g., `CREATE USER 'username'@'host' IDENTIFIED BY 'password'`.
+
+49. How do you grant privileges to a user in MySQL?
+    Answer: Use the `GRANT` statement, e.g., `GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'host'`.
+
+50. How do you revoke privileges from a user in MySQL?
+    Answer: Use the `REVOKE` statement, e.g., `REVOKE ALL PRIVILEGES ON database_name.* FROM 'username'@'host'`.

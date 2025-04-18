@@ -1,0 +1,44 @@
+1. What is the purpose of the `app/` directory in Laravel?
+   Answer: The `app/` directory contains the core application code, including models, controllers, middleware, and other logic.
+
+2. What is the role of the `bootstrap/` directory in Laravel?
+   Answer: The `bootstrap/` directory contains the `app.php` file, which bootstraps the framework and loads the application.
+
+3. What is stored in the `config/` directory?
+   Answer: The `config/` directory contains configuration files for the application, such as database, mail, and cache settings.
+
+4. What is the purpose of the `database/` directory?
+   Answer: The `database/` directory contains database migrations, seeders, and factories for testing and populating the database.
+
+5. What is the `public/` directory used for?
+   Answer: The `public/` directory is the entry point for the application and contains the `index.php` file, assets, and publicly accessible files.
+
+6. What is the `resources/` directory used for?
+   Answer: The `resources/` directory contains views, language files, and raw assets such as CSS and JavaScript.
+
+7. What is the purpose of the `routes/` directory?
+   Answer: The `routes/` directory contains route definition files, such as `web.php`, `api.php`, and `console.php`.
+
+8. What is the `storage/` directory used for?
+   Answer: The `storage/` directory is used for storing logs, cached files, compiled views, and user-uploaded files.
+
+9. What is the `tests/` directory used for?
+   Answer: The `tests/` directory contains unit and feature tests for the application.
+
+10. What is the `vendor/` directory?
+    Answer: The `vendor/` directory contains third-party dependencies installed via Composer.
+
+11. What is the purpose of the `.env` file in Laravel?
+    Answer: The `.env` file stores environment-specific configuration, such as database credentials and API keys.
+
+12. What is the `artisan` file in the root directory?
+    Answer: The `artisan` file is a command-line interface for Laravel, used to run tasks like migrations and generating files.
+
+13. What is the `composer.json` file used for?
+    Answer: The `composer.json` file defines the dependencies and autoloading rules for the application.
+
+14. What is the `package.json` file used for?
+    Answer: The `package.json` file manages JavaScript dependencies for the application.
+
+15. What is the `webpack.mix.js` file used for?
+    Answer: The `webpack.mix.js` file is used to define asset compilation tasks using Laravel Mix.

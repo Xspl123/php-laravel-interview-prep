@@ -1,0 +1,44 @@
+1. What is Laravel Query Builder?
+   Answer: Query Builder is a fluent interface in Laravel for building and executing database queries.
+
+2. How do you retrieve all records from a table using Query Builder?
+   Answer: Use the `DB::table('table_name')->get()` method.
+
+3. How do you retrieve a single record using Query Builder?
+   Answer: Use the `DB::table('table_name')->first()` or `DB::table('table_name')->find(id)` methods.
+
+4. How do you add a `where` clause in Query Builder?
+   Answer: Use the `where()` method, e.g., `DB::table('table_name')->where('column', 'value')->get()`.
+
+5. How do you use multiple `where` clauses in Query Builder?
+   Answer: Chain multiple `where()` methods or use `where()` with an array of conditions.
+
+6. How do you perform a join in Query Builder?
+   Answer: Use the `join()` method, e.g., `DB::table('users')->join('posts', 'users.id', '=', 'posts.user_id')->get()`.
+
+7. How do you order results in Query Builder?
+   Answer: Use the `orderBy()` method, e.g., `DB::table('table_name')->orderBy('column', 'asc')->get()`.
+
+8. How do you limit the number of results in Query Builder?
+   Answer: Use the `limit()` method, e.g., `DB::table('table_name')->limit(10)->get()`.
+
+9. How do you paginate results in Query Builder?
+   Answer: Use the `paginate()` method, e.g., `DB::table('table_name')->paginate(15)`.
+
+10. How do you insert data into a table using Query Builder?
+    Answer: Use the `insert()` method, e.g., `DB::table('table_name')->insert(['column' => 'value'])`.
+
+11. How do you update data in a table using Query Builder?
+    Answer: Use the `update()` method, e.g., `DB::table('table_name')->where('id', 1)->update(['column' => 'value'])`.
+
+12. How do you delete data from a table using Query Builder?
+    Answer: Use the `delete()` method, e.g., `DB::table('table_name')->where('id', 1)->delete()`.
+
+13. How do you use raw expressions in Query Builder?
+    Answer: Use the `DB::raw()` method, e.g., `DB::table('table_name')->select(DB::raw('COUNT(*) as count'))->get()`.
+
+14. How do you group results in Query Builder?
+    Answer: Use the `groupBy()` method, e.g., `DB::table('table_name')->groupBy('column')->get()`.
+
+15. How do you use transactions in Query Builder?
+    Answer: Use the `DB::transaction()` method to execute multiple queries atomically.

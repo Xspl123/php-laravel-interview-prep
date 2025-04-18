@@ -1,0 +1,59 @@
+1. What is Eloquent in Laravel?
+   Answer: Eloquent is Laravel's ORM (Object-Relational Mapping) that provides an easy way to interact with the database using models.
+
+2. How do you define a one-to-one relationship in Eloquent?
+   Answer: Use the `hasOne()` method in the parent model and `belongsTo()` in the related model.
+
+3. How do you define a one-to-many relationship in Eloquent?
+   Answer: Use the `hasMany()` method in the parent model and `belongsTo()` in the related model.
+
+4. How do you define a many-to-many relationship in Eloquent?
+   Answer: Use the `belongsToMany()` method in both related models.
+
+5. How do you define a polymorphic relationship in Eloquent?
+   Answer: Use the `morphTo()` method in the child model and `morphMany()` or `morphOne()` in the parent model.
+
+6. How do you define a many-to-many polymorphic relationship in Eloquent?
+   Answer: Use the `morphToMany()` method in both related models.
+
+7. How do you define an inverse one-to-one or one-to-many relationship in Eloquent?
+   Answer: Use the `belongsTo()` method in the related model.
+
+8. How do you define a has-many-through relationship in Eloquent?
+   Answer: Use the `hasManyThrough()` method in the parent model.
+
+9. How do you define a has-one-through relationship in Eloquent?
+   Answer: Use the `hasOneThrough()` method in the parent model.
+
+10. What is the purpose of the `with()` method in Eloquent?
+    Answer: The `with()` method is used to eager load relationships to reduce the number of queries.
+
+11. How do you use query scopes in Eloquent?
+    Answer: Define a method in the model with the `scope` prefix (e.g., `scopeActive`) and call it as `Model::active()`.
+
+12. How do you perform soft deletes in Eloquent?
+    Answer: Add the `SoftDeletes` trait to the model and include a `deleted_at` column in the database table.
+
+13. How do you retrieve only soft-deleted records in Eloquent?
+    Answer: Use the `onlyTrashed()` method on the query.
+
+14. How do you restore a soft-deleted record in Eloquent?
+    Answer: Use the `restore()` method on the soft-deleted model instance.
+
+15. How do you perform a raw query in Eloquent?
+    Answer: Use the `DB::raw()` method or the `selectRaw()` method for raw SQL queries.
+
+16. How do you update multiple records in Eloquent?
+    Answer: Use the `update()` method on a query builder instance with a `where` clause.
+
+17. How do you delete multiple records in Eloquent?
+    Answer: Use the `delete()` method on a query builder instance with a `where` clause.
+
+18. How do you use the `firstOrCreate()` method in Eloquent?
+    Answer: The `firstOrCreate()` method retrieves the first record matching the attributes or creates a new one if none exist.
+
+19. How do you use the `chunk()` method in Eloquent?
+    Answer: The `chunk()` method processes large datasets in smaller chunks to avoid memory exhaustion.
+
+20. How do you use the `whereHas()` method in Eloquent?
+    Answer: The `whereHas()` method filters parent models based on conditions applied to their relationships.

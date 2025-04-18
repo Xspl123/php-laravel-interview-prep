@@ -1,0 +1,44 @@
+1. What are queues in Laravel?
+   Answer: Queues allow you to defer the execution of time-consuming tasks to improve application performance.
+
+2. How do you create a job in Laravel?
+   Answer: Use the `php artisan make:job JobName` command.
+
+3. How do you dispatch a job in Laravel?
+   Answer: Use the `dispatch()` method, e.g., `JobName::dispatch()`.
+
+4. What is the purpose of the `queue` connection in Laravel?
+   Answer: It specifies the backend (e.g., database, Redis, SQS) used for managing the queue.
+
+5. How do you configure queue connections in Laravel?
+   Answer: Configure them in the `config/queue.php` file.
+
+6. How do you process a queue in Laravel?
+   Answer: Use the `php artisan queue:work` command.
+
+7. How do you retry failed jobs in Laravel?
+   Answer: Use the `php artisan queue:retry` command.
+
+8. How do you handle failed jobs in Laravel?
+   Answer: Use the `failed()` method in the job class or configure a failed job table.
+
+9. How do you delay a job in Laravel?
+   Answer: Use the `delay()` method, e.g., `JobName::dispatch()->delay(now()->addMinutes(10))`.
+
+10. How do you prioritize queues in Laravel?
+    Answer: Assign different queue names and process them with the `--queue` option.
+
+11. How do you use the `onQueue()` method in Laravel?
+    Answer: Use it to specify the queue name for a job, e.g., `JobName::dispatch()->onQueue('emails')`.
+
+12. How do you schedule queue workers in Laravel?
+    Answer: Use the `schedule()` method in the `App\Console\Kernel` class.
+
+13. How do you test queued jobs in Laravel?
+    Answer: Use the `Bus::fake()` method to fake job dispatching in tests.
+
+14. What is the difference between `queue:work` and `queue:listen`?
+    Answer: `queue:work` processes jobs continuously, while `queue:listen` restarts the worker after each job.
+
+15. How do you optimize queue worker performance?
+    Answer: Use the `--daemon` option with `queue:work` and configure supervisor for process management.

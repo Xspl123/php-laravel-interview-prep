@@ -1,0 +1,136 @@
+1. array_push() - Ek array ke end me elements add karne ke liye.
+   Example:
+   
+   $cart = ['apple', 'banana'];
+   array_push($cart, 'orange');
+   print_r($cart); // Output: ['apple', 'banana', 'orange']
+   
+
+2. array_pop() - Ek array ke last element ko remove karne ke liye.
+   Example:
+   
+   $stack = ['first', 'second', 'third'];
+   $lastItem = array_pop($stack);
+   print_r($stack); // Output: ['first', 'second']
+   
+
+3. array_shift() - Ek array ke first element ko remove karne ke liye.
+   Example:
+   
+   $queue = ['customer1', 'customer2', 'customer3'];
+   $firstCustomer = array_shift($queue);
+   print_r($queue); // Output: ['customer2', 'customer3']
+   
+
+4. array_unshift() - Ek array ke beginning me elements add karne ke liye.
+   Example:
+   
+   $tasks = ['task2', 'task3'];
+   array_unshift($tasks, 'task1');
+   print_r($tasks); // Output: ['task1', 'task2', 'task3']
+   
+
+5. array_merge() - Do ya zyada arrays ko merge karne ke liye.
+   Example:
+   
+   $array1 = ['a', 'b'];
+   $array2 = ['c', 'd'];
+   $merged = array_merge($array1, $array2);
+   print_r($merged); // Output: ['a', 'b', 'c', 'd']
+   
+
+6. array_combine() - Do arrays ko key-value pair me combine karne ke liye.
+   Example:
+   
+   $keys = ['username1', 'username2'];
+   $values = ['email1@example.com', 'email2@example.com'];
+   $combined = array_combine($keys, $values);
+   print_r($combined); // Output: ['username1' => 'email1@example.com', 'username2' => 'email2@example.com']
+   
+
+7. array_keys() - Ek array ke saare keys ko retrieve karne ke liye.
+   Example:
+   
+   $inventory = ['product1' => 10, 'product2' => 20];
+   $keys = array_keys($inventory);
+   print_r($keys); // Output: ['product1', 'product2']
+   
+
+8. array_values() - Ek array ke saare values ko retrieve karne ke liye.
+   Example:
+   
+   $inventory = ['product1' => 10, 'product2' => 20];
+   $values = array_values($inventory);
+   print_r($values); // Output: [10, 20]
+   
+
+9. array_unique() - Ek array se duplicate values ko remove karne ke liye.
+   Example:
+   
+   $tags = ['php', 'laravel', 'php'];
+   $uniqueTags = array_unique($tags);
+   print_r($uniqueTags); // Output: ['php', 'laravel']
+   
+
+10. in_array() - Check karne ke liye ki ek value array me exist karti hai ya nahi.
+    Example:
+    
+    $bannedUsers = ['user1', 'user2'];
+    $isBanned = in_array('user1', $bannedUsers);
+    var_dump($isBanned); // Output: true
+    
+
+11. array_search() - Ek value ko search karne aur uska key return karne ke liye.
+    Example:
+    
+    $catalog = ['item1', 'item2', 'item3'];
+    $key = array_search('item2', $catalog);
+    print_r($key); // Output: 1
+    
+
+12. array_filter() - Ek callback ka use karke array ke elements ko filter karne ke liye.
+    Example:
+    
+    $users = ['active', 'inactive', 'active'];
+    $activeUsers = array_filter($users, fn($status) => $status === 'active');
+    print_r($activeUsers); // Output: [0 => 'active', 2 => 'active']
+    
+
+13. array_map() - Ek callback ko array ke har element par apply karne ke liye.
+    Example:
+    
+    $prices = [100, 200, 300];
+    $convertedPrices = array_map(fn($price) => $price * 1.1, $prices);
+    print_r($convertedPrices); // Output: [110, 220, 330]
+    
+
+14. array_reduce() - Ek callback ka use karke array ko ek single value me reduce karne ke liye.
+    Example:
+    
+    $cart = [100, 200, 300];
+    $total = array_reduce($cart, fn($carry, $item) => $carry + $item, 0);
+    print_r($total); // Output: 600
+    
+
+15. array_slice() - Ek array ka ek portion extract karne ke liye.
+    Example:
+    
+    $results = ['result1', 'result2', 'result3', 'result4'];
+    $page = array_slice($results, 1, 2);
+    print_r($page); // Output: ['result2', 'result3']
+    
+
+16. array_splice() - Ek array ke elements ko remove ya replace karne ke liye.
+    Example: Playlist ke ek specific section ko update karna.
+
+17. array_reverse() - Ek array ke elements ka order reverse karne ke liye.
+    Example: Chat me sabse recent messages ko pehle dikhana.
+
+18. array_diff() - Arrays ko compare karke differences return karne ke liye.
+    Example: Inventory me missing items ko dhundhna.
+
+19. array_intersect() - Arrays ko compare karke common elements return karne ke liye.
+    Example: Do users ke beech mutual friends ko dhundhna.
+
+20. sort() - Ek array ko ascending order me sort karne ke liye.
+    Example: E-commerce store me products ko price ke hisaab se sort karna.

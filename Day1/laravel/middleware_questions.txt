@@ -1,0 +1,44 @@
+1. What is middleware in Laravel?
+   Answer: Middleware is a mechanism for filtering HTTP requests entering your application.
+
+2. How do you create middleware in Laravel?
+   Answer: Use the `php artisan make:middleware MiddlewareName` command.
+
+3. How do you register middleware in Laravel?
+   Answer: Register it in the `$middleware` array in `app/Http/Kernel.php` or assign it to a route group.
+
+4. What is the difference between global and route middleware?
+   Answer: Global middleware applies to all requests, while route middleware applies only to specific routes.
+
+5. How do you pass parameters to middleware?
+   Answer: Pass parameters in the route definition, e.g., `Route::get('/', [Controller::class, 'method'])->middleware('middleware:param');`.
+
+6. How do you terminate middleware in Laravel?
+   Answer: Implement the `terminate()` method in the middleware class.
+
+7. How do you handle CORS in Laravel middleware?
+   Answer: Use the `HandleCors` middleware or create custom middleware to set CORS headers.
+
+8. How do you restrict access to routes using middleware?
+   Answer: Use middleware like `auth` or create custom middleware to check user roles or permissions.
+
+9. How do you share data between middleware and controllers?
+   Answer: Use the request object to attach data, e.g., `$request->merge(['key' => 'value']);`.
+
+10. How do you skip middleware for specific routes?
+    Answer: Use the `except` property in the middleware class or define exclusions in the route group.
+
+11. How do you handle exceptions in middleware?
+    Answer: Use try-catch blocks within the middleware's `handle()` method.
+
+12. How do you log requests and responses using middleware?
+    Answer: Log the request and response data in the `handle()` method.
+
+13. How do you prioritize middleware execution?
+    Answer: Define the middleware order in the `$middlewarePriority` array in `app/Http/Kernel.php`.
+
+14. How do you use middleware groups in Laravel?
+    Answer: Define middleware groups in `app/Http/Kernel.php` and assign them to routes.
+
+15. How do you test middleware in Laravel?
+    Answer: Use PHPUnit to test middleware by simulating HTTP requests with the `withoutMiddleware()` or `withMiddleware()` methods.

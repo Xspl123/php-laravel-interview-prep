@@ -1,0 +1,44 @@
+1. What is the Service Container in Laravel?
+   Answer: The Service Container is a powerful tool for managing class dependencies and performing dependency injection.
+
+2. How do you bind a class to the Service Container?
+   Answer: Use the `bind()` or `singleton()` methods in the `AppServiceProvider` or directly in the container.
+
+3. What is the difference between `bind()` and `singleton()` in the Service Container?
+   Answer: `bind()` creates a new instance every time it is resolved, while `singleton()` creates a single shared instance.
+
+4. How do you resolve a class from the Service Container?
+   Answer: Use the `app()` helper or the `resolve()` method.
+
+5. What is a Service Provider in Laravel?
+   Answer: A Service Provider is a class that registers services and bindings in the Service Container.
+
+6. How do you create a custom Service Provider in Laravel?
+   Answer: Use the `make:provider` Artisan command to generate a new Service Provider class.
+
+7. How do you register a Service Provider in Laravel?
+   Answer: Add the Service Provider class to the `providers` array in the `config/app.php` file.
+
+8. What is the purpose of the `register()` method in a Service Provider?
+   Answer: The `register()` method is used to bind services or classes into the Service Container.
+
+9. What is the purpose of the `boot()` method in a Service Provider?
+   Answer: The `boot()` method is used to perform actions after all services have been registered.
+
+10. How do you defer the loading of a Service Provider?
+    Answer: Implement the `\Illuminate\Contracts\Support\DeferrableProvider` interface in the Service Provider.
+
+11. How do you inject dependencies using the Service Container?
+    Answer: Use constructor injection or method injection to resolve dependencies from the container.
+
+12. How do you bind an interface to an implementation in the Service Container?
+    Answer: Use the `bind()` or `singleton()` methods to map the interface to a concrete class.
+
+13. How do you use contextual binding in the Service Container?
+    Answer: Use the `when()` method to define bindings that apply only in specific contexts.
+
+14. How do you use tag-based binding in the Service Container?
+    Answer: Use the `tag()` method to group bindings under a tag and resolve them as a group.
+
+15. How do you test Service Container bindings in Laravel?
+    Answer: Use the `assertBound()` method provided by the container to verify bindings.

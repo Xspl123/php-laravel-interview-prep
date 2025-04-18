@@ -1,0 +1,44 @@
+1. What is the purpose of the `artisan` command in Laravel?
+   Answer: The `artisan` command is a CLI tool for running tasks like migrations, generating files, and clearing caches.
+
+2. How do you create a custom helper function in Laravel?
+   Answer: Define the function in a custom file and include it in `composer.json` under the `autoload` section.
+
+3. What is Laravel Telescope?
+   Answer: Laravel Telescope is a debugging and monitoring tool for Laravel applications.
+
+4. How do you schedule tasks in Laravel?
+   Answer: Use the `schedule()` method in the `App\Console\Kernel` class.
+
+5. What is the purpose of service providers in Laravel?
+   Answer: Service providers are used to bind classes into the service container and bootstrap application services.
+
+6. How do you use localization in Laravel?
+   Answer: Store language files in the `resources/lang` directory and use the `__()` helper for translations.
+
+7. What is the purpose of the `event()` helper in Laravel?
+   Answer: The `event()` helper is used to dispatch events.
+
+8. How do you handle file storage in Laravel?
+   Answer: Use the `Storage` facade to store, retrieve, and delete files.
+
+9. What is the purpose of the `make` commands in Laravel?
+   Answer: The `make` commands are used to generate boilerplate code for controllers, models, migrations, etc.
+
+10. How do you use the `policy` feature in Laravel?
+    Answer: Define policies for models to handle authorization logic.
+
+11. What is the purpose of the `queue` feature in Laravel?
+    Answer: The `queue` feature is used to defer time-consuming tasks for later execution.
+
+12. How do you use the `broadcast` feature in Laravel?
+    Answer: Use the `ShouldBroadcast` interface to broadcast events to WebSocket channels.
+
+13. How do you implement testing in Laravel?
+    Answer: Use PHPUnit and Laravel's testing utilities to write unit and feature tests.
+
+14. How do you use the `observer` feature in Laravel?
+    Answer: Use observers to listen to model events like `creating`, `updating`, and `deleting`.
+
+15. What is the purpose of the `middleware` feature in Laravel?
+    Answer: Middleware is used to filter HTTP requests entering the application.

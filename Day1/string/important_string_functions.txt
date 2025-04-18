@@ -1,0 +1,59 @@
+1. strlen() - Get the length of a string.
+   Example: Calculating the length of a username.
+
+2. strpos() - Find the position of the first occurrence of a substring.
+   Example: Checking if an email contains the "@" symbol.
+
+3. strrpos() - Find the position of the last occurrence of a substring.
+   Example: Finding the last occurrence of a directory separator in a file path.
+
+4. substr() - Extract a portion of a string.
+   Example: Extracting the domain from an email address.
+
+5. str_replace() - Replace all occurrences of a substring with another substring.
+   Example: Replacing spaces with underscores in a filename.
+
+6. str_ireplace() - Case-insensitive version of str_replace().
+   Example: Replacing "php" with "PHP" in a string regardless of case.
+
+7. strtolower() - Convert a string to lowercase.
+   Example: Converting user input to lowercase for case-insensitive comparison.
+
+8. strtoupper() - Convert a string to uppercase.
+   Example: Formatting a title in uppercase letters.
+
+9. ucfirst() - Capitalize the first character of a string.
+   Example: Capitalizing the first letter of a name.
+
+10. lcfirst() - Convert the first character of a string to lowercase.
+    Example: Converting "Hello" to "hello" for camelCase formatting.
+
+11. ucwords() - Capitalize the first character of each word in a string.
+    Example: Formatting a title with proper capitalization.
+
+12. trim() - Remove whitespace from the beginning and end of a string.
+    Example: Cleaning up user input before saving to a database.
+
+13. ltrim() - Remove whitespace from the beginning of a string.
+    Example: Removing leading spaces from a formatted string.
+
+14. rtrim() - Remove whitespace from the end of a string.
+    Example: Removing trailing spaces from a formatted string.
+
+15. str_split() - Split a string into an array of characters.
+    Example: Breaking a string into individual letters for analysis.
+
+16. explode() - Split a string by a delimiter into an array.
+    Example: Splitting a CSV line into an array of values.
+
+17. implode() - Join array elements into a string with a delimiter.
+    Example: Joining an array of words into a sentence.
+
+18. strcmp() - Compare two strings (case-sensitive).
+    Example: Checking if two passwords match exactly.
+
+19. strcasecmp() - Compare two strings (case-insensitive).
+    Example: Comparing usernames without case sensitivity.
+
+20. number_format() - Format a number with grouped thousands.
+    Example: Formatting a price as "1,000.00".

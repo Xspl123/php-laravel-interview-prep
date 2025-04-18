@@ -1,0 +1,39 @@
+1. Laravel mein API Resource kya hai aur iska use kya hai?
+   Answer: Laravel API Resource ek tarika hai jo data ko JSON format mein transform karne ke liye use hota hai. Ye API responses ko structure aur format karne mein madad karta hai.
+   Example:
+
+   php artisan make:resource UserResource
+
+   class UserResource extends JsonResource {
+       public function toArray($request) {
+           return [
+               'id' => $this->id,
+               'name' => $this->name,
+               'email' => $this->email,
+           ];
+       }
+   }
+
+   // Controller mein use karne ka tarika:
+   use App\Http\Resources\UserResource;
+
+   public function show($id) {
+       $user = User::find($id);
+       return new UserResource($user);
+   }
+
+2. Laravel mein API routes kaise define karte hain?
+   Answer: Laravel mein API routes `routes/api.php` file mein define hote hain. Ye routes automatically `/api` prefix ke saath accessible hote hain.
+   Example:
+
+   Route::get('/users', [UserController::class, 'index']);
+
+3. Laravel Sanctum ka use kya hai?
+   Answer: Laravel Sanctum ek package hai jo API authentication ke liye use hota hai. Ye token-based authentication provide karta hai.
+
+4. Laravel API mein Pagination kaise implement karte hain?
+   Answer: Laravel API mein pagination `paginate()` method ka use karke implement hoti hai.
+   Example:
+
+   $users = User::paginate(10);
+   return UserResource::collection($users);

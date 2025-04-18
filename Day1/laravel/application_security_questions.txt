@@ -1,0 +1,44 @@
+1. How do you protect against SQL injection in Laravel?
+   Answer: Use Eloquent or query builder methods with parameter binding.
+
+2. How do you protect against XSS in Laravel?
+   Answer: Use the `{{ }}` Blade syntax to escape output.
+
+3. How do you secure sensitive data in Laravel?
+   Answer: Store sensitive data in the `.env` file and use environment variables.
+
+4. How do you enable CSRF protection in Laravel?
+   Answer: Use the `@csrf` directive in forms or include the CSRF token manually.
+
+5. How do you hash passwords in Laravel?
+   Answer: Use the `Hash::make()` method to hash passwords.
+
+6. How do you implement authentication in Laravel?
+   Answer: Use Laravel's built-in authentication scaffolding or the `Auth` facade.
+
+7. How do you protect routes in Laravel?
+   Answer: Use middleware like `auth` or custom middleware to restrict access.
+
+8. How do you encrypt data in Laravel?
+   Answer: Use the `Crypt` facade to encrypt and decrypt data.
+
+9. How do you secure file uploads in Laravel?
+   Answer: Validate file types and sizes using the `validate()` method.
+
+10. How do you prevent mass assignment vulnerabilities in Laravel?
+    Answer: Use the `$fillable` or `$guarded` properties in models.
+
+11. How do you implement rate limiting in Laravel?
+    Answer: Use the `throttle` middleware to limit the number of requests.
+
+12. How do you secure API endpoints in Laravel?
+    Answer: Use API tokens or Laravel Passport for authentication.
+
+13. How do you log security events in Laravel?
+    Answer: Use the `Log` facade to log suspicious activities.
+
+14. How do you protect against session hijacking in Laravel?
+    Answer: Use HTTPS and configure session cookies with the `secure` and `httpOnly` flags.
+
+15. How do you validate user input in Laravel?
+    Answer: Use the `validate()` method or form request classes.

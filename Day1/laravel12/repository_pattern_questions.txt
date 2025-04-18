@@ -1,0 +1,44 @@
+1. What is the Repository Pattern in Laravel?
+   Answer: The Repository Pattern is a design pattern that abstracts database queries into a separate repository class.
+
+2. What are the benefits of using the Repository Pattern?
+   Answer: It improves code reusability, testability, and separation of concerns.
+
+3. How do you create a repository in Laravel?
+   Answer: Create a class in the `app/Repositories` directory and define methods for database operations.
+
+4. How do you bind a repository to an interface in Laravel?
+   Answer: Use the `bind()` method in the `AppServiceProvider`.
+
+5. How do you inject a repository into a controller?
+   Answer: Use constructor dependency injection to inject the repository.
+
+6. What is the difference between a repository and a service in Laravel?
+   Answer: A repository handles database operations, while a service contains business logic.
+
+7. How do you test a repository in Laravel?
+   Answer: Use mock objects to test repository methods independently of the database.
+
+8. How do you handle pagination in a repository?
+   Answer: Use the `paginate()` method in the repository's query.
+
+9. How do you handle relationships in a repository?
+   Answer: Use Eloquent relationships within the repository methods.
+
+10. How do you implement caching in a repository?
+    Answer: Use Laravel's cache facade to store and retrieve query results.
+
+11. How do you handle transactions in a repository?
+    Answer: Use the `DB::transaction()` method within the repository.
+
+12. How do you handle filtering in a repository?
+    Answer: Use dynamic query building with conditions based on input parameters.
+
+13. How do you handle sorting in a repository?
+    Answer: Use the `orderBy()` method in the repository's query.
+
+14. How do you handle soft deletes in a repository?
+    Answer: Use the `withTrashed()` or `onlyTrashed()` methods in the repository.
+
+15. How do you implement a generic repository in Laravel?
+    Answer: Create a base repository class with common methods and extend it in specific repositories.

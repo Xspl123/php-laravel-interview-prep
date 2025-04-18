@@ -1,0 +1,44 @@
+1. Laravel mein Gate kya hai?
+   Uttar: Gate ek saral closure aadharit tarika hai jo yeh tay karta hai ki koi upyogakarta kisi vishesh karya ko kar sakta hai ya nahi.
+
+2. Laravel mein Policy kya hai?
+   Uttar: Policy ek class hai jo kisi model se sambandhit authorization logic ko paribhashit karti hai.
+
+3. Gate aur Policy mein kya antar hai?
+   Uttar: Gate closure aadharit hai aur samanya authorization ke liye upyog hoti hai, jabki Policy model-specific authorization ke liye upyog hoti hai.
+
+4. Laravel mein Guard kya hai?
+   Uttar: Guard yeh paribhashit karta hai ki upyogakarta ko authenticate karne ke liye kaunsa authentication driver upyog kiya jayega.
+
+5. Gate kaise paribhashit karte hain?
+   Uttar: Gate ko `Gate::define()` method ka upyog karke paribhashit kiya jata hai.
+
+6. Policy kaise banate hain?
+   Uttar: `make:policy` Artisan command ka upyog karke Policy banayi jati hai.
+
+7. Policy ko kaise register karte hain?
+   Uttar: Policy ko `AuthServiceProvider` ki `$policies` property mein register kiya jata hai.
+
+8. Gate ka upyog kaise karte hain?
+   Uttar: `Gate::allows()` ya `Gate::denies()` methods ka upyog karke Gate ka upyog kiya jata hai.
+
+9. Policy ka upyog kaise karte hain?
+   Uttar: `authorize()` method ya Blade directives jaise `@can` ka upyog karke Policy ka upyog kiya jata hai.
+
+10. Guard ko kaise configure karte hain?
+    Uttar: Guard ko `config/auth.php` file mein configure kiya jata hai.
+
+11. Laravel mein default Guard kya hai?
+    Uttar: Laravel mein default Guard `web` hai.
+
+12. Custom Guard kaise banate hain?
+    Uttar: Custom Guard ko `Auth::extend()` method ka upyog karke banaya jata hai.
+
+13. Middleware mein Gate ya Policy ka upyog kaise karte hain?
+    Uttar: Middleware mein `can` Middleware ka upyog karke Gate ya Policy lagu ki jati hai.
+
+14. Laravel mein Authorization ko kaise test karte hain?
+    Uttar: Authorization ko PHPUnit test mein `actingAs()` method ka upyog karke test kiya jata hai.
+
+15. Kya Gate aur Policy ko ek saath upyog kiya ja sakta hai?
+    Uttar: Haan, Gate aur Policy ko ek saath upyog kiya ja sakta hai taaki authorization ko adhik flexible banaya ja sake.

@@ -1,0 +1,74 @@
+1. What are events in Laravel?
+   Answer: Events in Laravel provide a way to decouple different parts of the application by triggering actions when specific events occur.
+   प्रश्न: Laravel में इवेंट्स क्या हैं?
+   उत्तर: Laravel में इवेंट्स एप्लिकेशन के विभिन्न हिस्सों को अलग करने का एक तरीका प्रदान करते हैं, जो विशिष्ट घटनाओं के होने पर क्रियाएं ट्रिगर करते हैं।
+
+2. How do you create an event in Laravel?
+   Answer: Use the `php artisan make:event EventName` command.
+   प्रश्न: Laravel में इवेंट कैसे बनाते हैं?
+   उत्तर: `php artisan make:event EventName` कमांड का उपयोग करें।
+
+3. What are listeners in Laravel?
+   Answer: Listeners are classes that handle the logic for events when they are triggered.
+   प्रश्न: Laravel में लिस्नर्स क्या हैं?
+   उत्तर: लिस्नर्स वे क्लासेस हैं जो इवेंट्स के ट्रिगर होने पर उनकी लॉजिक को संभालते हैं।
+
+4. How do you create a listener in Laravel?
+   Answer: Use the `php artisan make:listener ListenerName` command.
+   प्रश्न: Laravel में लिस्नर कैसे बनाते हैं?
+   उत्तर: `php artisan make:listener ListenerName` कमांड का उपयोग करें।
+
+5. How do you register events and listeners in Laravel?
+   Answer: Register them in the `EventServiceProvider` class under the `$listen` array.
+   प्रश्न: Laravel में इवेंट्स और लिस्नर्स को कैसे रजिस्टर करते हैं?
+   उत्तर: इन्हें `EventServiceProvider` क्लास में `$listen` ऐरे के तहत रजिस्टर करें।
+
+6. How do you dispatch an event in Laravel?
+   Answer: Use the `event()` helper or the `Event::dispatch()` method.
+   प्रश्न: Laravel में इवेंट को कैसे डिस्पैच करते हैं?
+   उत्तर: `event()` हेल्पर या `Event::dispatch()` मेथड का उपयोग करें।
+
+7. What is the purpose of queued listeners in Laravel?
+   Answer: Queued listeners handle events asynchronously to improve performance.
+   प्रश्न: Laravel में queued listeners का उद्देश्य क्या है?
+   उत्तर: Queued listeners इवेंट्स को असिंक्रोनस रूप से संभालते हैं ताकि प्रदर्शन में सुधार हो सके।
+
+8. How do you queue a listener in Laravel?
+   Answer: Implement the `ShouldQueue` interface in the listener class.
+   प्रश्न: Laravel में लिस्नर को कैसे queue करते हैं?
+   उत्तर: लिस्नर क्लास में `ShouldQueue` इंटरफेस को लागू करें।
+
+9. How do you stop event propagation in Laravel?
+   Answer: Call the `stopPropagation()` method within the listener.
+   प्रश्न: Laravel में इवेंट प्रोपेगेशन को कैसे रोकते हैं?
+   उत्तर: लिस्नर के अंदर `stopPropagation()` मेथड को कॉल करें।
+
+10. How do you test events in Laravel?
+    Answer: Use the `expectsEvents()` or `doesntExpectEvents()` methods in your tests.
+    प्रश्न: Laravel में इवेंट्स को कैसे टेस्ट करते हैं?
+    उत्तर: अपने टेस्ट्स में `expectsEvents()` या `doesntExpectEvents()` मेथड का उपयोग करें।
+
+11. What is the `broadcastOn()` method in events?
+    Answer: It specifies the channels on which the event should be broadcast.
+    प्रश्न: इवेंट्स में `broadcastOn()` मेथड क्या है?
+    उत्तर: यह उन चैनलों को निर्दिष्ट करता है जिन पर इवेंट को ब्रॉडकास्ट किया जाना चाहिए।
+
+12. How do you broadcast events in Laravel?
+    Answer: Use the `ShouldBroadcast` interface in the event class.
+    प्रश्न: Laravel में इवेंट्स को कैसे ब्रॉडकास्ट करते हैं?
+    उत्तर: इवेंट क्लास में `ShouldBroadcast` इंटरफेस का उपयोग करें।
+
+13. How do you listen to multiple events with a single listener?
+    Answer: Register the listener for multiple events in the `EventServiceProvider`.
+    प्रश्न: एक ही लिस्नर के साथ कई इवेंट्स को कैसे सुनते हैं?
+    उत्तर: `EventServiceProvider` में लिस्नर को कई इवेंट्स के लिए रजिस्टर करें।
+
+14. How do you handle exceptions in listeners?
+    Answer: Use try-catch blocks within the listener's `handle()` method.
+    प्रश्न: लिस्नर्स में exceptions को कैसे संभालते हैं?
+    उत्तर: लिस्नर के `handle()` मेथड में try-catch ब्लॉक्स का उपयोग करें।
+
+15. What is the difference between synchronous and asynchronous listeners?
+    Answer: Synchronous listeners execute immediately, while asynchronous listeners are queued for later execution.
+    प्रश्न: Synchronous और asynchronous listeners में क्या अंतर है?
+    उत्तर: Synchronous listeners तुरंत निष्पादित होते हैं, जबकि asynchronous listeners को बाद में निष्पादन के लिए queue किया जाता है।
