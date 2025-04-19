@@ -1,59 +1,209 @@
-1. What is Eloquent in Laravel?
-   Answer: Eloquent is Laravel's ORM (Object-Relational Mapping) that provides an easy way to interact with the database using models.
+1. Laravel mein Eloquent kya hai?
+   Answer: Eloquent Laravel ka ORM (Object-Relational Mapping) hai jo models ka use karke database ke saath interact karne ka asaan tarika provide karta hai.
 
-2. How do you define a one-to-one relationship in Eloquent?
-   Answer: Use the `hasOne()` method in the parent model and `belongsTo()` in the related model.
+2. Eloquent mein one-to-one relationship kaise define karte hain?
+   Answer: Parent model mein `hasOne()` method aur related model mein `belongsTo()` method ka use karke.
+   Purpose: One-to-one relationship ka use tab hota hai jab ek model ka sirf ek related model ho. Jaise ek user ka ek profile ho sakta hai.
+   Example:
+   
+   class User extends Model {
+       public function profile() {
+           return $this->hasOne(Profile::class);
+       }
+   }
 
-3. How do you define a one-to-many relationship in Eloquent?
-   Answer: Use the `hasMany()` method in the parent model and `belongsTo()` in the related model.
+   class Profile extends Model {
+       public function user() {
+           return $this->belongsTo(User::class);
+       }
+   }
+  
+   Explanation: `User` model ka ek `Profile` ho sakta hai. `hasOne()` method `User` model mein define hota hai aur `belongsTo()` method `Profile` model mein define hota hai.
 
-4. How do you define a many-to-many relationship in Eloquent?
-   Answer: Use the `belongsToMany()` method in both related models.
+3. Eloquent mein one-to-many relationship kaise define karte hain?
+   Answer: Parent model mein `hasMany()` method aur related model mein `belongsTo()` method ka use karke.
+   Purpose: One-to-many relationship ka use tab hota hai jab ek model ke multiple related models ho. Jaise ek post ke multiple comments ho sakte hain.
+   Example:
+   
+   class Post extends Model {
+       public function comments() {
+           return $this->hasMany(Comment::class);
+       }
+   }
 
-5. How do you define a polymorphic relationship in Eloquent?
-   Answer: Use the `morphTo()` method in the child model and `morphMany()` or `morphOne()` in the parent model.
+   class Comment extends Model {
+       public function post() {
+           return $this->belongsTo(Post::class);
+       }
+   }
+  
+   Explanation: `Post` model ke multiple `Comment` ho sakte hain. `hasMany()` method `Post` model mein define hota hai aur `belongsTo()` method `Comment` model mein define hota hai.
 
-6. How do you define a many-to-many polymorphic relationship in Eloquent?
-   Answer: Use the `morphToMany()` method in both related models.
+4. Eloquent mein many-to-many relationship kaise define karte hain?
+   Answer: Dono related models mein `belongsToMany()` method ka use karke.
+   Purpose: Many-to-many relationship ka use tab hota hai jab dono models ek doosre ke saath multiple relationships share karte hain. Jaise ek user ke multiple roles ho sakte hain aur ek role ke multiple users ho sakte hain.
+   Example:
+   
+   class User extends Model {
+       public function roles() {
+           return $this->belongsToMany(Role::class);
+       }
+   }
 
-7. How do you define an inverse one-to-one or one-to-many relationship in Eloquent?
-   Answer: Use the `belongsTo()` method in the related model.
+   class Role extends Model {
+       public function users() {
+           return $this->belongsToMany(User::class);
+       }
+   }
+  
+   Explanation: `User` aur `Role` models ke beech ek pivot table hota hai jo unka relationship define karta hai. `belongsToMany()` method dono models mein define hota hai.
 
-8. How do you define a has-many-through relationship in Eloquent?
-   Answer: Use the `hasManyThrough()` method in the parent model.
+5. Eloquent mein polymorphic relationship kaise define karte hain?
+   Answer: Child model mein `morphTo()` method aur parent model mein `morphMany()` ya `morphOne()` method ka use karke.
+   Purpose: Polymorphic relationship ka use tab hota hai jab ek model multiple models ke saath relate ho sakta hai. Jaise ek comment post par bhi ho sakta hai aur video par bhi.
+   Example:
+   
+   class Post extends Model {
+       public function comments() {
+           return $this->morphMany(Comment::class, 'commentable');
+       }
+   }
 
-9. How do you define a has-one-through relationship in Eloquent?
-   Answer: Use the `hasOneThrough()` method in the parent model.
+   class Video extends Model {
+       public function comments() {
+           return $this->morphMany(Comment::class, 'commentable');
+       }
+   }
 
-10. What is the purpose of the `with()` method in Eloquent?
-    Answer: The `with()` method is used to eager load relationships to reduce the number of queries.
+   class Comment extends Model {
+       public function commentable() {
+           return $this->morphTo();
+       }
+   }
+  
+   Explanation: `Comment` model `Post` aur `Video` models ke saath relate ho sakta hai. `morphMany()` method parent models mein define hota hai aur `morphTo()` method child model mein define hota hai.
 
-11. How do you use query scopes in Eloquent?
-    Answer: Define a method in the model with the `scope` prefix (e.g., `scopeActive`) and call it as `Model::active()`.
+6. Eloquent mein many-to-many polymorphic relationship kaise define karte hain?
+   Answer: Dono related models mein `morphToMany()` method ka use karke.
+   Purpose: Many-to-many polymorphic relationship ka use tab hota hai jab ek model multiple models ke saath many-to-many relationship share kare. Jaise ek tag posts aur videos dono ke saath relate ho sakta hai.
+   Example:
+   
+   class Post extends Model {
+       public function tags() {
+           return $this->morphToMany(Tag::class, 'taggable');
+       }
+   }
 
-12. How do you perform soft deletes in Eloquent?
-    Answer: Add the `SoftDeletes` trait to the model and include a `deleted_at` column in the database table.
+   class Video extends Model {
+       public function tags() {
+           return $this->morphToMany(Tag::class, 'taggable');
+       }
+   }
 
-13. How do you retrieve only soft-deleted records in Eloquent?
-    Answer: Use the `onlyTrashed()` method on the query.
+   class Tag extends Model {
+       public function posts() {
+           return $this->morphedByMany(Post::class, 'taggable');
+       }
 
-14. How do you restore a soft-deleted record in Eloquent?
-    Answer: Use the `restore()` method on the soft-deleted model instance.
+       public function videos() {
+           return $this->morphedByMany(Video::class, 'taggable');
+       }
+   }
+  
+   Explanation: `Tag` model `Post` aur `Video` models ke saath many-to-many relationship share karta hai. `morphToMany()` method parent models mein define hota hai aur `morphedByMany()` method child model mein define hota hai.
 
-15. How do you perform a raw query in Eloquent?
-    Answer: Use the `DB::raw()` method or the `selectRaw()` method for raw SQL queries.
+7. Eloquent mein inverse one-to-one ya one-to-many relationship kaise define karte hain?
+   Answer: Related model mein `belongsTo()` method ka use karke.
+   Purpose: Inverse relationship ka use tab hota hai jab related model se parent model ko access karna ho.
+   Example:
+   
+   class Comment extends Model {
+       public function post() {
+           return $this->belongsTo(Post::class);
+       }
+   }
+  
+   Explanation: `Comment` model ke through `Post` model ko access karne ke liye `belongsTo()` method ka use hota hai.
 
-16. How do you update multiple records in Eloquent?
-    Answer: Use the `update()` method on a query builder instance with a `where` clause.
+8. Eloquent mein has-many-through relationship kaise define karte hain?
+   Answer: Parent model mein `hasManyThrough()` method ka use karke.
+   Purpose: Has-many-through relationship ka use tab hota hai jab ek model ke through doosre model ke multiple records access karne ho. Jaise ek country ke through posts access karna.
+   Example:
+   
+   class Country extends Model {
+       public function posts() {
+           return $this->hasManyThrough(Post::class, User::class);
+       }
+   }
 
-17. How do you delete multiple records in Eloquent?
-    Answer: Use the `delete()` method on a query builder instance with a `where` clause.
+   class User extends Model {
+       public function country() {
+           return $this->belongsTo(Country::class);
+       }
+   }
 
-18. How do you use the `firstOrCreate()` method in Eloquent?
-    Answer: The `firstOrCreate()` method retrieves the first record matching the attributes or creates a new one if none exist.
+   class Post extends Model {
+       public function user() {
+           return $this->belongsTo(User::class);
+       }
+   }
+  
+   Explanation: `Country` model ke through `Post` model ke records access karne ke liye `hasManyThrough()` method ka use hota hai.
 
-19. How do you use the `chunk()` method in Eloquent?
-    Answer: The `chunk()` method processes large datasets in smaller chunks to avoid memory exhaustion.
+9. Eloquent mein has-one-through relationship kaise define karte hain?
+   Answer: Parent model mein `hasOneThrough()` method ka use karke.
+   Purpose: Has-one-through relationship ka use tab hota hai jab ek model ke through doosre model ka ek record access karna ho. Jaise ek mechanic ke through car owner access karna.
+   Example:
+   
+   class Mechanic extends Model {
+       public function carOwner() {
+           return $this->hasOneThrough(Owner::class, Car::class);
+       }
+   }
 
-20. How do you use the `whereHas()` method in Eloquent?
-    Answer: The `whereHas()` method filters parent models based on conditions applied to their relationships.
+   class Car extends Model {
+       public function mechanic() {
+           return $this->belongsTo(Mechanic::class);
+       }
+   }
+
+   class Owner extends Model {
+       public function car() {
+           return $this->belongsTo(Car::class);
+       }
+   }
+  
+   Explanation: `Mechanic` model ke through `Owner` model ka ek record access karne ke liye `hasOneThrough()` method ka use hota hai.
+
+10. Eloquent mein `with()` method ka purpose kya hai?
+    Answer: `with()` method ka use relationships ko eager load karne ke liye hota hai, jo queries ki sankhya ko kam karta hai.
+
+11. Eloquent mein query scopes kaise use karte hain?
+    Answer: Model mein ek method define karein jo `scope` prefix ke saath ho (e.g., `scopeActive`) aur ise `Model::active()` ke roop mein call karein.
+
+12. Eloquent mein soft deletes kaise perform karte hain?
+    Answer: Model mein `SoftDeletes` trait add karein aur database table mein ek `deleted_at` column include karein.
+
+13. Eloquent mein sirf soft-deleted records kaise retrieve karte hain?
+    Answer: Query par `onlyTrashed()` method ka use karke.
+
+14. Eloquent mein ek soft-deleted record ko kaise restore karte hain?
+    Answer: Soft-deleted model instance par `restore()` method ka use karke.
+
+15. Eloquent mein raw query kaise perform karte hain?
+    Answer: Raw SQL queries ke liye `DB::raw()` method ya `selectRaw()` method ka use karein.
+
+16. Eloquent mein multiple records kaise update karte hain?
+    Answer: Query builder instance par `where` clause ke saath `update()` method ka use karke.
+
+17. Eloquent mein multiple records kaise delete karte hain?
+    Answer: Query builder instance par `where` clause ke saath `delete()` method ka use karke.
+
+18. Eloquent mein `firstOrCreate()` method kaise use karte hain?
+    Answer: `firstOrCreate()` method attributes ko match karne wale pehle record ko retrieve karta hai ya agar koi exist nahi karta to naya create karta hai.
+
+19. Eloquent mein `chunk()` method kaise use karte hain?
+    Answer: `chunk()` method large datasets ko chhote chunks mein process karta hai taaki memory exhaustion se bacha ja sake.
+
+20. Eloquent mein `whereHas()` method kaise use karte hain?
+    Answer: `whereHas()` method parent models ko filter karta hai jo unke relationships par applied conditions par based hota hai.
