@@ -76,6 +76,8 @@
 
 7. Inheritance kya hai?
    Answer: Inheritance ek mechanism hai jisme ek class doosri class ke properties aur methods inherit karti hai.
+   Explanation: Iska matlab hai ki ek class (child class) doosri class (parent class) ke features ko reuse kar sakti hai. 
+   Ye code reusability aur maintainability ko improve karta hai.
    Example:
    
    class Vehicle {
@@ -91,6 +93,7 @@
 
 8. Polymorphism kya hai?
    Answer: Polymorphism ka matlab hai ek hi method ko alag-alag tarike se implement karna.
+   Explanation: Polymorphism ka use karke hum ek hi naam ke methods ko alag-alag classes mein different behavior ke saath define karte hain.
    Example:
    
    class Shape {
@@ -109,6 +112,8 @@
 
 9. Abstraction kya hai?
    Answer: Abstraction ka matlab hai unnecessary details ko hide karna aur sirf essential features ko show karna.
+   Explanation: Abstraction ka use karke hum ek blueprint define karte hain jo subclasses ko implement karna hota hai. 
+   Ye implementation details ko hide karta hai aur sirf functionality ko expose karta hai.
    Example:
    
    abstract class Animal {
