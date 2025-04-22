@@ -1,149 +1,433 @@
-1. What is MySQL?
-   Answer: MySQL is an open-source relational database management system (RDBMS) based on SQL (Structured Query Language).
+1. MySQL kya hai?  
+   Answer: MySQL ek open-source relational database management system (RDBMS) hai jo SQL (Structured Query Language) par based hai.
 
-2. What are the different data types in MySQL?
-   Answer: MySQL supports data types such as INT, VARCHAR, TEXT, DATE, DATETIME, FLOAT, and ENUM.
+2. MySQL mein alag-alag data types kaunse hote hain?  
+   Answer: MySQL mein data types jaise INT, VARCHAR, TEXT, DATE, DATETIME, FLOAT, aur ENUM supported hote hain.
 
-3. What is the difference between `CHAR` and `VARCHAR` in MySQL?
-   Answer: `CHAR` is a fixed-length string, while `VARCHAR` is a variable-length string.
+3. MySQL mein `CHAR` aur `VARCHAR` mein kya antar hai?  
+   Answer: `CHAR` ek fixed-length string hai, jabki `VARCHAR` ek variable-length string hai.
 
-4. What is a primary key in MySQL?
-   Answer: A primary key is a unique identifier for a record in a table and cannot contain NULL values.
+4. MySQL mein primary key kya hoti hai?  
+   Answer: Primary key ek unique identifier hoti hai kisi record ke liye aur NULL values nahi le sakti.
 
-5. What is a foreign key in MySQL?
-   Answer: A foreign key is a field in one table that refers to the primary key in another table to establish a relationship.
+5. MySQL mein foreign key kya hoti hai?  
+   Answer: Foreign key ek field hoti hai jo ek table ke primary key ko dusre table mein refer karti hai relationship banane ke liye.
 
-6. What is the difference between `WHERE` and `HAVING` clauses?
-   Answer: `WHERE` filters rows before grouping, while `HAVING` filters groups after aggregation.
+6. `WHERE` aur `HAVING` clauses mein kya antar hai?  
+   Answer: `WHERE` rows ko group karne se pehle filter karta hai, jabki `HAVING` groups ko aggregate hone ke baad filter karta hai.
 
-7. What is the purpose of the `GROUP BY` clause?
-   Answer: The `GROUP BY` clause groups rows with the same values in specified columns for aggregation.
+7. `GROUP BY` clause ka kya kaam hai?  
+   Answer: `GROUP BY` clause rows ko group karta hai jo specified columns mein same values rakhte hain aggregation ke liye.
 
-8. What is the difference between `INNER JOIN` and `OUTER JOIN`?
-   Answer: `INNER JOIN` returns matching rows from both tables, while `OUTER JOIN` includes unmatched rows as well.
+8. `INNER JOIN` aur `OUTER JOIN` mein kya antar hai?  
+   Answer: `INNER JOIN` dono tables ke matching rows return karta hai, jabki `OUTER JOIN` unmatched rows ko bhi include karta hai.
 
-9. What is the use of the `LIMIT` clause in MySQL?
-   Answer: The `LIMIT` clause restricts the number of rows returned by a query.
+9. MySQL mein `LIMIT` clause ka kya use hai?  
+   Answer: `LIMIT` clause query ke result mein rows ki count ko limit karta hai.
 
-10. What is the difference between `UNION` and `UNION ALL`?
-    Answer: `UNION` removes duplicate rows, while `UNION ALL` includes all rows, including duplicates.
+10. `UNION` aur `UNION ALL` mein kya antar hai?  
+    Answer: `UNION` duplicate rows ko remove karta hai, jabki `UNION ALL` saare rows ko include karta hai, duplicates ke saath.
 
-11. How do you create an index in MySQL?
-    Answer: Use the `CREATE INDEX` statement, e.g., `CREATE INDEX idx_name ON table_name(column_name)`.
+11. MySQL mein index kaise create karte hain?  
+    Answer: `CREATE INDEX` statement ka use karke index create kiya ja sakta hai, e.g., `CREATE INDEX idx_name ON table_name(column_name)`.
 
-12. What is the purpose of indexing in MySQL?
-    Answer: Indexing improves query performance by allowing faster data retrieval.
+12. MySQL mein indexing ka kya purpose hai?  
+    Answer: Indexing query performance ko improve karta hai by allowing faster data retrieval.
 
-13. What is a composite key in MySQL?
-    Answer: A composite key is a primary key made up of two or more columns.
+13. MySQL mein composite key kya hoti hai?  
+    Answer: Composite key ek primary key hoti hai jo do ya do se zyada columns se milkar banti hai.
 
-14. What is the difference between `DELETE` and `TRUNCATE`?
-    Answer: `DELETE` removes specific rows and can be rolled back, while `TRUNCATE` removes all rows and cannot be rolled back.
+14. `DELETE` aur `TRUNCATE` mein kya antar hai?  
+    Answer: `DELETE` specific rows ko remove karta hai aur rollback kiya ja sakta hai, jabki `TRUNCATE` saare rows ko remove karta hai aur rollback nahi kiya ja sakta.
 
-15. What is the difference between `DROP` and `TRUNCATE`?
-    Answer: `DROP` deletes the table structure and data, while `TRUNCATE` only deletes the data.
+    Example in Hinglish:  
+    - Agar aap ek table `students` mein se sirf ek student ka record delete karna chahte ho, toh aap `DELETE` use karoge:  
+      ```
+      DELETE FROM students WHERE id = 1;
+      ```
+    - Agar aap poora table ka data saaf karna chahte ho bina rollback ke, toh aap `TRUNCATE` use karoge:  
+      ```
+      TRUNCATE TABLE students;
+      ```
 
-16. What is a stored procedure in MySQL?
-    Answer: A stored procedure is a set of SQL statements stored in the database and executed as a single unit.
+15. `DROP` aur `TRUNCATE` mein kya antar hai?  
+    Answer: `DROP` table structure aur data dono ko delete karta hai, jabki `TRUNCATE` sirf data ko delete karta hai.
 
-17. What is a trigger in MySQL?
-    Answer: A trigger is a set of SQL statements that automatically execute in response to certain events on a table.
+    Example in Hinglish:  
+    - Agar aap table `students` ko poori tarah delete karna chahte ho (structure aur data dono), toh aap `DROP` use karoge:  
+      ```
+      DROP TABLE students;
+      ```
+    - Agar aap sirf table ka data delete karna chahte ho, structure ko nahi, toh aap `TRUNCATE` use karoge:  
+      ```
+      TRUNCATE TABLE students;
+      ```
 
-18. What is a view in MySQL?
-    Answer: A view is a virtual table based on the result of a SELECT query.
+16. MySQL mein stored procedure kya hota hai?  
+    Answer: Stored procedure ek set of SQL statements hota hai jo database mein stored hota hai aur ek single unit ke roop mein execute hota hai.
 
-19. What is the difference between `NOW()` and `CURRENT_DATE()`?
-    Answer: `NOW()` returns the current date and time, while `CURRENT_DATE()` returns only the current date.
+    Example in Hinglish:  
+    - Agar aapko ek procedure banana hai jo kisi employee ka salary update kare:  
+      ```
+      DELIMITER //
+      CREATE PROCEDURE UpdateSalary(IN emp_id INT, IN new_salary DECIMAL(10, 2))
+      BEGIN
+          UPDATE employees SET salary = new_salary WHERE id = emp_id;
+      END //
+      DELIMITER ;
+      ```
+    - Isko call karne ke liye:  
+      ```
+      CALL UpdateSalary(1, 50000.00);
+      ```
 
-20. How do you perform a backup in MySQL?
-    Answer: Use the `mysqldump` command, e.g., `mysqldump -u username -p database_name > backup.sql`.
+17. MySQL mein trigger kya hota hai?  
+    Answer: Trigger ek set of SQL statements hota hai jo automatically execute hota hai in response to certain events on a table.
 
-21. How do you restore a backup in MySQL?
-    Answer: Use the `mysql` command, e.g., `mysql -u username -p database_name < backup.sql`.
+    Example in Hinglish:  
+    - Agar aapko ek trigger banana hai jo kisi employee ka salary update hone par ek log entry kare:  
+      ```
+      CREATE TRIGGER after_salary_update
+      AFTER UPDATE ON employees
+      FOR EACH ROW
+      BEGIN
+          INSERT INTO salary_logs(employee_id, old_salary, new_salary, updated_at)
+          VALUES (OLD.id, OLD.salary, NEW.salary, NOW());
+      END;
+      ```
 
-22. What is the purpose of the `AUTO_INCREMENT` attribute?
-    Answer: The `AUTO_INCREMENT` attribute automatically generates a unique value for a column.
+18. MySQL mein view kya hota hai?  
+    Answer: View ek virtual table hota hai jo SELECT query ke result par based hota hai. Ye data ko khud store nahi karta, lekin complex queries ko simplify karne ya sensitive data ko secure karne ka tarika provide karta hai.
 
-23. What is the difference between `IS NULL` and `= NULL`?
-    Answer: `IS NULL` checks for NULL values, while `= NULL` is invalid.
+    Example in Hinglish:  
+    - Agar aapko ek view banana hai jo sirf employee ka naam aur department dikhaye:  
+      ```
+      CREATE VIEW employee_view AS
+      SELECT name, department
+      FROM employees;
+      ```
+    - Is view ko query karne ke liye:  
+      ```
+      SELECT * FROM employee_view;
+      ```
 
-24. What is the purpose of the `DISTINCT` keyword?
-    Answer: The `DISTINCT` keyword removes duplicate rows from the result set.
+19. `NOW()` aur `CURRENT_DATE()` mein kya antar hai?  
+    Answer: `NOW()` current date aur time return karta hai, jabki `CURRENT_DATE()` sirf current date return karta hai.
 
-25. What is the difference between `IN` and `EXISTS`?
-    Answer: `IN` checks for values in a list, while `EXISTS` checks for the existence of rows in a subquery.
+    Example in Hinglish:  
+    - Agar aapko current date aur time chahiye:  
+      ```
+      SELECT NOW();
+      ```
+      Output: `2023-03-15 10:30:00`
+    - Agar aapko sirf current date chahiye:  
+      ```
+      SELECT CURRENT_DATE();
+      ```
+      Output: `2023-03-15`
 
-26. What is the purpose of the `CASE` statement in MySQL?
-    Answer: The `CASE` statement allows conditional logic in SQL queries.
+20. MySQL mein backup kaise lete hain?  
+    Answer: `mysqldump` command ka use karke backup liya ja sakta hai, e.g., `mysqldump -u username -p database_name > backup.sql`.
 
-27. What is the difference between `CHAR_LENGTH()` and `LENGTH()`?
-    Answer: `CHAR_LENGTH()` returns the number of characters, while `LENGTH()` returns the number of bytes.
+    Example in Hinglish:  
+    - Agar aapko `school` database ka backup lena hai:  
+      ```
+      mysqldump -u root -p school > school_backup.sql
+      ```
 
-28. How do you rename a table in MySQL?
-    Answer: Use the `RENAME TABLE` statement, e.g., `RENAME TABLE old_name TO new_name`.
+21. MySQL mein backup kaise restore karte hain?  
+    Answer: `mysql` command ka use karke backup restore kiya ja sakta hai, e.g., `mysql -u username -p database_name < backup.sql`.
 
-29. How do you add a column to an existing table?
-    Answer: Use the `ALTER TABLE` statement, e.g., `ALTER TABLE table_name ADD column_name datatype`.
+    Example in Hinglish:  
+    - Agar aapko `school_backup.sql` ko restore karna hai:  
+      ```
+      mysql -u root -p school < school_backup.sql
+      ```
 
-30. How do you remove a column from a table?
-    Answer: Use the `ALTER TABLE` statement, e.g., `ALTER TABLE table_name DROP COLUMN column_name`.
+22. `AUTO_INCREMENT` attribute ka kya purpose hai?  
+    Answer: `AUTO_INCREMENT` attribute automatically ek unique value generate karta hai kisi column ke liye.
 
-31. What is the difference between `MyISAM` and `InnoDB` storage engines?
-    Answer: `MyISAM` does not support transactions or foreign keys, while `InnoDB` supports both.
+    Example in Hinglish:  
+    - Agar aapko kisi table ke primary key column ke liye auto-increment value chahiye:  
+      ```
+      CREATE TABLE students (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          name VARCHAR(100)
+      );
+      ```
 
-32. How do you check the version of MySQL?
-    Answer: Use the `SELECT VERSION()` query or the `mysql --version` command.
+23. `IS NULL` aur `= NULL` mein kya antar hai?  
+    Answer: `IS NULL` NULL values ko check karta hai, jabki `= NULL` invalid hai.
 
-33. What is the purpose of the `EXPLAIN` statement?
-    Answer: The `EXPLAIN` statement provides information about how MySQL executes a query.
+    Example in Hinglish:  
+    - Agar aapko check karna hai ki kisi column ka value NULL hai:  
+      ```
+      SELECT * FROM students WHERE age IS NULL;
+      ```
 
-34. How do you optimize a table in MySQL?
-    Answer: Use the `OPTIMIZE TABLE` statement, e.g., `OPTIMIZE TABLE table_name`.
+24. `DISTINCT` keyword ka kya purpose hai?  
+    Answer: `DISTINCT` keyword result set se duplicate rows ko remove karta hai.
 
-35. What is the purpose of the `FOREIGN_KEY_CHECKS` variable?
-    Answer: It enables or disables foreign key constraint checks.
+    Example in Hinglish:  
+    - Agar aapko unique values chahiye kisi column ke:  
+      ```
+      SELECT DISTINCT department FROM employees;
+      ```
 
-36. How do you find duplicate rows in a table?
-    Answer: Use the `GROUP BY` and `HAVING` clauses to identify duplicates.
+25. `IN` aur `EXISTS` mein kya antar hai?  
+    Answer: `IN` values ko list mein check karta hai, jabki `EXISTS` subquery mein rows ke existence ko check karta hai.
 
-37. How do you update data in MySQL?
-    Answer: Use the `UPDATE` statement, e.g., `UPDATE table_name SET column_name = value WHERE condition`.
+    Example in Hinglish:  
+    - Agar aapko check karna hai ki ek value list mein hai:  
+      ```
+      SELECT * FROM students WHERE id IN (1, 2, 3);
+      ```
+    - Agar aapko check karna hai ki ek subquery rows return karti hai:  
+      ```
+      SELECT * FROM students WHERE EXISTS (SELECT 1 FROM teachers WHERE teachers.id = students.teacher_id);
+      ```
 
-38. How do you delete data in MySQL?
-    Answer: Use the `DELETE` statement, e.g., `DELETE FROM table_name WHERE condition`.
+26. MySQL mein `CASE` statement ka kya purpose hai?  
+    Answer: `CASE` statement SQL queries mein conditional logic allow karta hai.
 
-39. What is the purpose of the `LOCK TABLES` statement?
-    Answer: The `LOCK TABLES` statement locks tables for read or write operations.
+    Example in Hinglish:  
+    - Agar aapko kisi column ke values ko condition ke basis par modify karna hai:  
+      ```
+      SELECT name,
+             CASE
+                 WHEN age < 18 THEN 'Minor'
+                 ELSE 'Adult'
+             END AS age_group
+      FROM students;
+      ```
 
-40. How do you unlock tables in MySQL?
-    Answer: Use the `UNLOCK TABLES` statement.
+27. `CHAR_LENGTH()` aur `LENGTH()` mein kya antar hai?  
+    Answer: `CHAR_LENGTH()` characters ki count return karta hai, jabki `LENGTH()` bytes ki count return karta hai.
 
-41. What is the difference between `BLOB` and `TEXT` data types?
-    Answer: `BLOB` is used for binary data, while `TEXT` is used for text data.
+    Example in Hinglish:  
+    - Agar aapko kisi string ke characters count karne hai:  
+      ```
+      SELECT CHAR_LENGTH(name) FROM students;
+      ```
+    - Agar aapko kisi string ke bytes count karne hai:  
+      ```
+      SELECT LENGTH(name) FROM students;
+      ```
 
-42. How do you create a database in MySQL?
-    Answer: Use the `CREATE DATABASE` statement, e.g., `CREATE DATABASE database_name`.
+28. MySQL mein table ka naam kaise change karte hain?  
+    Answer: `RENAME TABLE` statement ka use karke table ka naam change kiya ja sakta hai, e.g., `RENAME TABLE old_name TO new_name`.
 
-43. How do you drop a database in MySQL?
-    Answer: Use the `DROP DATABASE` statement, e.g., `DROP DATABASE database_name`.
+    Example in Hinglish:  
+    - Agar aapko ek table ka naam change karna hai:  
+      ```
+      RENAME TABLE old_students TO new_students;
+      ```
 
-44. What is the purpose of the `SET` data type?
-    Answer: The `SET` data type allows storing multiple predefined values in a single column.
+29. MySQL mein existing table mein column kaise add karte hain?  
+    Answer: `ALTER TABLE` statement ka use karke table mein naya column add kiya ja sakta hai, e.g., `ALTER TABLE table_name ADD column_name datatype`.
 
-45. How do you change the default storage engine in MySQL?
-    Answer: Use the `default-storage-engine` option in the MySQL configuration file.
+    Example in Hinglish:  
+    - Agar aapko ek table mein naya column add karna hai:  
+      ```
+      ALTER TABLE students ADD age INT;
+      ```
 
-46. How do you enable slow query logging in MySQL?
-    Answer: Configure the `slow_query_log` variable in the MySQL configuration file.
+30. MySQL mein table se column kaise delete karte hain?  
+    Answer: `ALTER TABLE` statement ka use karke table se column delete kiya ja sakta hai, e.g., `ALTER TABLE table_name DROP COLUMN column_name`.
 
-47. What is the purpose of the `SHOW` statement in MySQL?
-    Answer: The `SHOW` statement displays database, table, or server information.
+    Example in Hinglish:  
+    - Agar aapko ek table se column delete karna hai:  
+      ```
+      ALTER TABLE students DROP COLUMN age;
+      ```
 
-48. How do you create a user in MySQL?
-    Answer: Use the `CREATE USER` statement, e.g., `CREATE USER 'username'@'host' IDENTIFIED BY 'password'`.
+31. `MyISAM` aur `InnoDB` storage engines mein kya antar hai?  
+    Answer: `MyISAM` transactions ya foreign keys ko support nahi karta, jabki `InnoDB` dono ko support karta hai.
 
-49. How do you grant privileges to a user in MySQL?
-    Answer: Use the `GRANT` statement, e.g., `GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'host'`.
+    Example in Hinglish:  
+    - Agar aapko ek table create karna hai InnoDB storage engine ke saath:  
+      ```
+      CREATE TABLE students (
+          id INT PRIMARY KEY,
+          name VARCHAR(100)
+      ) ENGINE=InnoDB;
+      ```
 
-50. How do you revoke privileges from a user in MySQL?
-    Answer: Use the `REVOKE` statement, e.g., `REVOKE ALL PRIVILEGES ON database_name.* FROM 'username'@'host'`.
+32. MySQL ka version kaise check karte hain?  
+    Answer: `SELECT VERSION()` query ya `mysql --version` command ka use karke version check kiya ja sakta hai.
+
+    Example in Hinglish:  
+    - Agar aapko MySQL version check karna hai:  
+      ```
+      SELECT VERSION();
+      ```
+
+33. MySQL mein `EXPLAIN` statement ka kya purpose hai?  
+    Answer: `EXPLAIN` statement information provide karta hai ki MySQL query ko kaise execute karta hai.
+
+    Example in Hinglish:  
+    - Agar aapko query execution plan dekhna hai:  
+      ```
+      EXPLAIN SELECT * FROM students;
+      ```
+
+34. MySQL mein table ko kaise optimize karte hain?  
+    Answer: `OPTIMIZE TABLE` statement ka use karke table ko optimize kiya ja sakta hai, e.g., `OPTIMIZE TABLE table_name`.
+
+    Example in Hinglish:  
+    - Agar aapko ek table optimize karna hai:  
+      ```
+      OPTIMIZE TABLE students;
+      ```
+
+35. `FOREIGN_KEY_CHECKS` variable ka kya purpose hai?  
+    Answer: Ye foreign key constraint checks ko enable ya disable karta hai.
+
+    Example in Hinglish:  
+    - Agar aapko foreign key checks disable karne hai:  
+      ```
+      SET FOREIGN_KEY_CHECKS = 0;
+      ```
+
+36. MySQL mein duplicate rows kaise find karte hain?  
+    Answer: `GROUP BY` aur `HAVING` clauses ka use karke duplicates identify kiye ja sakte hain.
+
+    Example in Hinglish:  
+    - Agar aapko duplicate rows find karni hai:  
+      ```
+      SELECT name, COUNT(*)
+      FROM students
+      GROUP BY name
+      HAVING COUNT(*) > 1;
+      ```
+
+37. MySQL mein data kaise update karte hain?  
+    Answer: `UPDATE` statement ka use karke data update kiya ja sakta hai, e.g., `UPDATE table_name SET column_name = value WHERE condition`.
+
+    Example in Hinglish:  
+    - Agar aapko ek table mein data update karna hai:  
+      ```
+      UPDATE students SET name = 'John' WHERE id = 1;
+      ```
+
+38. MySQL mein data kaise delete karte hain?  
+    Answer: `DELETE` statement ka use karke data delete kiya ja sakta hai, e.g., `DELETE FROM table_name WHERE condition`.
+
+    Example in Hinglish:  
+    - Agar aapko ek table se data delete karna hai:  
+      ```
+      DELETE FROM students WHERE id = 1;
+      ```
+
+39. MySQL mein `LOCK TABLES` statement ka kya purpose hai?  
+    Answer: `LOCK TABLES` statement tables ko read ya write operations ke liye lock karta hai.
+
+    Example in Hinglish:  
+    - Agar aapko ek table lock karna hai write operations ke liye:  
+      ```
+      LOCK TABLES students WRITE;
+      ```
+
+40. MySQL mein tables kaise unlock karte hain?  
+    Answer: `UNLOCK TABLES` statement ka use karke tables unlock ki ja sakti hain.
+
+    Example in Hinglish:  
+    - Agar aapko tables unlock karni hai:  
+      ```
+      UNLOCK TABLES;
+      ```
+
+41. `BLOB` aur `TEXT` data types mein kya antar hai?  
+    Answer: `BLOB` binary data ke liye use hota hai, jabki `TEXT` text data ke liye use hota hai.
+
+    Example in Hinglish:  
+    - Agar aapko ek table create karna hai BLOB aur TEXT columns ke saath:  
+      ```
+      CREATE TABLE documents (
+          id INT PRIMARY KEY,
+          content BLOB,
+          description TEXT
+      );
+      ```
+
+42. MySQL mein database kaise create karte hain?  
+    Answer: `CREATE DATABASE` statement ka use karke database create kiya ja sakta hai, e.g., `CREATE DATABASE database_name`.
+
+    Example in Hinglish:  
+    - Agar aapko ek naya database create karna hai:  
+      ```
+      CREATE DATABASE school;
+      ```
+
+43. MySQL mein database kaise drop karte hain?  
+    Answer: `DROP DATABASE` statement ka use karke database delete kiya ja sakta hai, e.g., `DROP DATABASE database_name`.
+
+    Example in Hinglish:  
+    - Agar aapko ek database delete karna hai:  
+      ```
+      DROP DATABASE school;
+      ```
+
+44. `SET` data type ka kya purpose hai?  
+    Answer: `SET` data type multiple predefined values ko ek single column mein store karne ki suvidha deta hai.
+
+    Example in Hinglish:  
+    - Agar aapko ek table create karna hai SET data type ke saath:  
+      ```
+      CREATE TABLE students (
+          id INT PRIMARY KEY,
+          hobbies SET('reading', 'sports', 'music')
+      );
+      ```
+
+45. MySQL mein default storage engine kaise change karte hain?  
+    Answer: MySQL configuration file mein `default-storage-engine` option ka use karke default storage engine change kiya ja sakta hai.
+
+    Example in Hinglish:  
+    - Agar aapko default storage engine change karna hai:  
+      ```
+      SET default_storage_engine = 'InnoDB';
+      ```
+
+46. MySQL mein slow query logging kaise enable karte hain?  
+    Answer: MySQL configuration file mein `slow_query_log` variable ko configure karke slow query logging enable kiya ja sakta hai.
+
+    Example in Hinglish:  
+    - Agar aapko slow query logging enable karna hai:  
+      ```
+      SET GLOBAL slow_query_log = 'ON';
+      ```
+
+47. MySQL mein `SHOW` statement ka kya purpose hai?  
+    Answer: `SHOW` statement database, table, ya server information ko display karta hai.
+
+    Example in Hinglish:  
+    - Agar aapko databases list karni hai:  
+      ```
+      SHOW DATABASES;
+      ```
+
+48. MySQL mein user kaise create karte hain?  
+    Answer: `CREATE USER` statement ka use karke user create kiya ja sakta hai, e.g., `CREATE USER 'username'@'host' IDENTIFIED BY 'password'`.
+
+    Example in Hinglish:  
+    - Agar aapko ek naya user create karna hai:  
+      ```
+      CREATE USER 'student'@'localhost' IDENTIFIED BY 'password';
+      ```
+
+49. MySQL mein user ko privileges kaise grant karte hain?  
+    Answer: `GRANT` statement ka use karke user ko privileges grant ki ja sakti hain, e.g., `GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'host'`.
+
+    Example in Hinglish:  
+    - Agar aapko ek user ko privileges grant karni hai:  
+      ```
+      GRANT ALL PRIVILEGES ON school.* TO 'student'@'localhost';
+      ```
+
+50. MySQL mein ek user ke privileges kaise revoke karte hain?  
+    Answer: `REVOKE` statement ka use karke user ke privileges revoke kiye ja sakte hain.  
+    Example:  
+    ```
+    REVOKE ALL PRIVILEGES ON school.* FROM 'student'@'localhost';
+    ```
